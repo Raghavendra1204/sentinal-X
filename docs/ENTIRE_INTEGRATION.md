@@ -34,7 +34,9 @@ work. Before setup, inspect branch, working changes, existing Git hooks,
 Use the [official installation instructions](https://github.com/entireio/cli#quick-start).
 The stable Windows installer was downloaded to the sibling `entire-integration`
 directory and inspected before execution. Its GitHub asset download stalled and
-was stopped. A retry uses the same official release and release checksum.
+was stopped. The same-release retry also stalled and was stopped. No executable
+was installed and no PATH change was made. The installer selected stable 0.11.4;
+that is a release selection, not an installed version.
 Executable installation and command validation must be reported separately from
 repository enablement.
 

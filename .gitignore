@@ -2,15 +2,7 @@
 .env.*
 !.env.example
 
-# Developer caches and machine-local environments
-.venv/
-venv/
-__pycache__/
-.pytest_cache/
-node_modules/
-
 # Private runtime diagnostics and local application state
-/local-audit/
 /backend/sentinel.db
 /backend/sentinel.db-shm
 /backend/sentinel.db-wal
