@@ -1,0 +1,97 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.5-flash",
+  "ai_generated": true,
+  "source": "samples/gemini-security-demo/app/access.py",
+  "checks": {
+    "backend_policy": true,
+    "verifier_policy": true,
+    "tampered_patch_rejected": true,
+    "missing_approval_rejected": true,
+    "patch_applies_to_actual_sample": true,
+    "original_sample_unchanged": true
+  },
+  "baseline": {
+    "status": "VERIFICATION_FAILED",
+    "tests_total": 8,
+    "tests_passed": 4,
+    "tests_failed": 4,
+    "test_results": [
+      {
+        "name": "verification/protected_tests/test_functional.py::test_owner_accesses_own_document_successfully",
+        "outcome": "passed"
+      },
+      {
+        "name": "verification/protected_tests/test_functional.py::test_anonymous_user_cannot_access_private_documents",
+        "outcome": "passed"
+      },
+      {
+        "name": "verification/protected_tests/test_functional.py::test_nonexistent_document_handled_correctly",
+        "outcome": "passed"
+      },
+      {
+        "name": "verification/protected_tests/test_functional.py::test_legitimate_functionality_remains_intact",
+        "outcome": "passed"
+      },
+      {
+        "name": "verification/protected_tests/test_security.py::test_user_a_cannot_access_user_b_document",
+        "outcome": "failed"
+      },
+      {
+        "name": "verification/protected_tests/test_security.py::test_user_b_cannot_access_user_a_document",
+        "outcome": "failed"
+      },
+      {
+        "name": "verification/protected_tests/test_security.py::test_multiple_unauthorized_document_ids_rejected",
+        "outcome": "failed"
+      },
+      {
+        "name": "verification/protected_tests/test_security.py::test_superficial_fix_blocking_only_single_id_rejected",
+        "outcome": "failed"
+      }
+    ],
+    "execution_error": null
+  },
+  "patched": {
+    "status": "VERIFIED",
+    "tests_total": 8,
+    "tests_passed": 8,
+    "tests_failed": 0,
+    "test_results": [
+      {
+        "name": "verification/protected_tests/test_functional.py::test_owner_accesses_own_document_successfully",
+        "outcome": "passed"
+      },
+      {
+        "name": "verification/protected_tests/test_functional.py::test_anonymous_user_cannot_access_private_documents",
+        "outcome": "passed"
+      },
+      {
+        "name": "verification/protected_tests/test_functional.py::test_nonexistent_document_handled_correctly",
+        "outcome": "passed"
+      },
+      {
+        "name": "verification/protected_tests/test_functional.py::test_legitimate_functionality_remains_intact",
+        "outcome": "passed"
+      },
+      {
+        "name": "verification/protected_tests/test_security.py::test_user_a_cannot_access_user_b_document",
+        "outcome": "passed"
+      },
+      {
+        "name": "verification/protected_tests/test_security.py::test_user_b_cannot_access_user_a_document",
+        "outcome": "passed"
+      },
+      {
+        "name": "verification/protected_tests/test_security.py::test_multiple_unauthorized_document_ids_rejected",
+        "outcome": "passed"
+      },
+      {
+        "name": "verification/protected_tests/test_security.py::test_superficial_fix_blocking_only_single_id_rejected",
+        "outcome": "passed"
+      }
+    ],
+    "execution_error": null
+  },
+  "patch_hash": "sha256:32e61bf572e3de4874e04a909f405c8662755c4d6080c80051fea83c3321b3f1"
+}

@@ -1,0 +1,11 @@
+{
+  "root_cause": "The get_document function returns document content without verifying that requesting_user_id matches the document owner_id.",
+  "explanation": "Check that doc['owner_id'] equals requesting_user_id before returning, raising a PermissionError on ownership mismatch.",
+  "patch_format": "unified_diff",
+  "patch_text": "diff --git a/app/access.py b/app/access.py\n--- a/app/access.py\n+++ b/app/access.py\n@@ -76,4 +76,6 @@\n \n     # VULNERABLE IMPLEMENTATION (Broken Object-Level Authorization):\n     # Fails to enforce that doc[\"owner_id\"] == requesting_user_id before returning.\n+    if doc[\"owner_id\"] != requesting_user_id:\n+        raise PermissionError(\"Access denied: requesting user does not own this document\")\n     return dict(doc)\n",
+  "files_changed": [
+    "app/access.py"
+  ],
+  "model": "gemini-3.5-flash",
+  "attempt": 0
+}

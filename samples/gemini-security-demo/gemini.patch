@@ -1,0 +1,10 @@
+diff --git a/app/access.py b/app/access.py
+--- a/app/access.py
++++ b/app/access.py
+@@ -76,4 +76,6 @@
+ 
+     # VULNERABLE IMPLEMENTATION (Broken Object-Level Authorization):
+     # Fails to enforce that doc["owner_id"] == requesting_user_id before returning.
++    if doc["owner_id"] != requesting_user_id:
++        raise PermissionError("Access denied: requesting user does not own this document")
+     return dict(doc)

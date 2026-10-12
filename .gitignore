@@ -1,0 +1,46 @@
+.env
+.env.*
+!.env.example
+
+# Developer caches and machine-local environments
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+node_modules/
+
+# Private runtime diagnostics and local application state
+/local-audit/
+/backend/sentinel.db
+/backend/sentinel.db-shm
+/backend/sentinel.db-wal
+
+# Entire's private local settings, transcripts and diagnostics.
+# Keep generated team settings and agent hooks reviewable.
+.entire/settings.local.json
+.entire/metadata/
+.entire/logs/
+.entire/tmp/
+
+# Environments & Dependencies
+.venv/
+env/
+venv/
+node_modules/
+
+# Python Cache & Testing
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local data & temp logs
+local-audit/
+.tmp/
+*.log
+dist/
+build/
+.DS_Store
+Thumbs.db
